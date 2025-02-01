@@ -12,12 +12,12 @@ int add(int i, int j) {
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(python_example, m) {
+PYBIND11_MODULE(_derpwrap, m) {
     m.doc() = R"pbdoc(
         Pybind11 example plugin
         -----------------------
 
-        .. currentmodule:: python_example
+        .. currentmodule:: python_example._derpwrap
 
         .. autosummary::
            :toctree: _generate
@@ -43,4 +43,5 @@ PYBIND11_MODULE(python_example, m) {
 #else
     m.attr("__version__") = "dev";
 #endif
+    m.attr("__name__") = "python_example._derpwrap";
 }

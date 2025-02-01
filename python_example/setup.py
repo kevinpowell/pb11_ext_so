@@ -3,7 +3,7 @@ from pybind11.setup_helpers import Pybind11Extension, build_ext
 from setuptools import setup
 import os
 
-__version__ = "0.0.8"
+__version__ = "0.0.21"
 
 # The main interface is through Pybind11Extension.
 # * You can add cxx_std=11/14/17, and then build_ext can be removed.
@@ -16,14 +16,14 @@ __version__ = "0.0.8"
 
 ext_modules = [
     Pybind11Extension(
-        "python_example",
-        ["python_example/src/main.cpp"],
+        name="python_example._derpwrap",
+        sources=["python_example/src/main.cpp"],
         # Example: passing in the version to the compiled code
         define_macros=[("VERSION_INFO", __version__)],
         libraries=["herpderp"],  # Use standard name (libherpderp.so)
         library_dirs=[os.path.abspath("python_example/libs")],
         include_dirs=[os.path.abspath("python_example/include")],
-        extra_link_args=["-Wl,-rpath,$ORIGIN/python_example/libs"],
+        extra_link_args=["-Wl,-rpath,$ORIGIN/libs"],
     ),
 ]
 
