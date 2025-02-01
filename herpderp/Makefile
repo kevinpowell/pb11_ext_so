@@ -26,8 +26,8 @@ all: $(TARGET)
 # Rule to link object files into a shared library
 $(TARGET): $(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $(OBJS)
-	cp $@ ../python_example/libs/
-	cp herpderp.h ../python_example/include/
+	cp $@ ../python_example/python_example/libs/
+	cp herpderp.h ../python_example/python_example/include/
 
 # Clean up build files
 clean:
